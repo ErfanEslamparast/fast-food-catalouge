@@ -1,0 +1,17 @@
+@keyframes loading {
+    0%{
+        opacity: 0;
+        background-color: hsl(200, 17%, 79%);
+    }
+    100%{
+        opacity: 1;
+        background-color: hsl(200, 20%, 95%);
+    }
+}
+.place-holder{
+    height: 288px;
+    animation: loading 1s linear infinite alternate;
+}
+.card{
+    opacity: 0;
+}
