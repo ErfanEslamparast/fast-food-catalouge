@@ -7,13 +7,21 @@
         const [loading, setLoading] = useState(false)
 
         const fetchCategories = async ()=>{
-            const response = await axios.get('/FoodCategory/categories');
-            setCategories(response.data)
-            setLoading(false)
+
+                try {
+                    setLoading(true);
+                    const response = await axios.get('/FoodCategory/categories');
+                    setCategories(response.data);
+                } catch (error) {
+                    console.error("Error fetching categories:", error);
+                } finally {
+                    setLoading(false);
+                }
+           
+            
         }
         
         useEffect(() => {
-            setLoading(true)
             fetchCategories()
             
         }, []);
