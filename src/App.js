@@ -9,7 +9,7 @@ import SearchBar from "./components/SearchBar/searchBar";
 import notFound from './assets/images/404.png'
 function App() {
   const [fastFoodItems, setFastFoodItems] = useState([]);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   const listFetching = async (categoryId) => {
     setLoading(true);
@@ -31,7 +31,7 @@ function App() {
   };
   const renderContent = () => {
     if (loading) {
-      return <Loading></Loading>;
+      return (<Loading></Loading>)
     }else if(fastFoodItems.length == 0){
       return (
         <>

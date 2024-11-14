@@ -4,7 +4,7 @@ import Loading from "../Loading/loading";
 import SearchBar from "../SearchBar/searchBar";
 const CategoryList = ({filterItems,children})=>{
     const [categories, setCategories] = useState([]);
-    const [loading, setLoading] = useState()
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
@@ -17,9 +17,8 @@ const CategoryList = ({filterItems,children})=>{
         fetchCategories()
         
     }, []);
-
     const renderContent = ()=> {
-        if(loading) {return <Loading></Loading>}
+        if(loading) {return (<Loading></Loading>)}
         else return(
             <div className="w-100 bg-light d-flex justify-content-between align-items-center rounded-3 p-3 position-absolute top-0 translate-middle-y">
         <ul className="nav w-50 d-flex justify-content-between align-items-center" style={{height:"50px"}}>
