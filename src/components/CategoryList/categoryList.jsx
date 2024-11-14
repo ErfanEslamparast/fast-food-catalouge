@@ -10,7 +10,7 @@
 
                 try {
                     setLoading(true);
-                    const response = await fetch('https://react-mini-projects-api.classbon.com/FoodCategory/categories').json();
+                    const response = await axios.get('/FoodCategory/categories');
                     setCategories(response.data);
                 } catch (error) {
                     console.error("Error fetching categories:", error);

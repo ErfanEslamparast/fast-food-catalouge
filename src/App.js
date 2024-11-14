@@ -14,7 +14,7 @@ function App() {
   const listFetching = async (categoryId) => {
     try{
       setLoading(true);
-      const response = await fetch(`https://react-mini-projects-api.classbon.com/FastFood/list?categoryId=${categoryId}`).json();
+      const response = await axios.get(`FastFood/list?categoryId=${categoryId}`);
       setFastFoodItems(response.data);
     }
     catch(error) {
