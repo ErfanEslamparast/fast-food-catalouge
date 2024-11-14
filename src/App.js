@@ -12,10 +12,16 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   const listFetching = async (categoryId) => {
-    setLoading(true);
-    const response = await axios.get(`FastFood/list?categoryId=${categoryId}`);
-    setFastFoodItems(response.data);
-    setLoading(false);
+    try{
+      setLoading(true);
+      const response = await axios.get(`FastFood/list?categoryId=${categoryId}`);
+      setFastFoodItems(response.data);
+    }
+    catch(error) {
+      console.error("Error fetching categories:", error);
+  } finally {
+      setLoading(false);
+  }
   };
   const searchFunction = async (term)=>{
     setLoading(true)
