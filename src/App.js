@@ -14,7 +14,9 @@ function App() {
   const listFetching = async (categoryId) => {
     try{
       setLoading(true);
-      const response = await axios.get(`FastFood/list?categoryId=${categoryId}`);
+      const response = await axios.get(`FastFood/list?categoryId=${categoryId}`)
+      console.log(response.data);
+      
       setFastFoodItems(response.data);
     }
     catch(error) {
@@ -38,7 +40,8 @@ function App() {
   const renderContent = () => {
     if (loading) {
       return (<Loading></Loading>)
-    }else if(fastFoodItems.length == 0){
+    }
+    else if(fastFoodItems.length == 0){
       return (
         <>
         <p className="alert alert-warning text-center ">هیچ آیتمی یافت نشد</p>
@@ -46,6 +49,7 @@ function App() {
         </>
       )
     } else {
+      
       return <FastFoodItems fastFoodItems={fastFoodItems}></FastFoodItems>
     };
   };

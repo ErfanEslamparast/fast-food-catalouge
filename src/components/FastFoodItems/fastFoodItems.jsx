@@ -1,8 +1,9 @@
 import FastFoodItem from "./fastFoodItem";
 const FastFoodItems = ({fastFoodItems})=>{
+    
     let delay = 0.1;
     return (
-       <div className="row">
+        <div className="row">
         {fastFoodItems.map(item=>{
             delay+= 0.1;
             return(
